@@ -1,15 +1,5 @@
 const cells = document.getElementsByClassName('cell');
 const cellElements = document.querySelectorAll('.cell')
-const cellBtn = document.getElementById('cellBtn');
-const cell1 = document.getElementById('cell1');
-const cell2 = document.getElementById('cell2');
-const cell3 = document.getElementById('cell3');
-const cell4 = document.getElementById('cell4');
-const cell5 = document.getElementById('cell5');
-const cell6 = document.getElementById('cell6');
-const cell7 = document.getElementById('cell7');
-const cell8 = document.getElementById('cell8');
-const cell9 = document.getElementById('cell9');
 const showStatus = document.getElementById('showStatus') 
 const currentPlayerHighlighter = document.getElementById('currentPlayerHighlighter'); 
 const xScore = document.getElementById('xScore')
@@ -57,19 +47,25 @@ function changeDiv(event){
         } 
     }
 }
+
+
 function resetBtn(){
     hasAnyoneWon = false;
     for(let i = 0; i < cells.length; i++){
         cells[i].textContent = '';
     }
-    if(currentPlayer == 'X'){
-    showStatus.innerHTML = `Turn for <span style="color: red;" id="currentPlayerHighlighter">${currentPlayer}</span> to move!`;
-    }else{
-    showStatus.innerHTML = `Turn for <span style="color: blue;" id="currentPlayerHighlighter">${currentPlayer}</span> to move!`;
-    }
-    currentPlayerHighlighter.textContent = currentPlayer;
-
+    updateStatus()
 }
+
+
+function updateStatus() {
+    // Update the current player highlighter and show status
+    currentPlayerHighlighter.textContent = currentPlayer;
+    currentPlayerHighlighter.style.color = currentPlayer === 'X' ? 'red' : 'blue';
+    showStatus.innerHTML = `Turn for <span id="currentPlayerHighlighter" style="color: ${currentPlayer === 'X' ? 'red' : 'blue'};">${currentPlayer}</span> to move!`;
+}
+
+
 function checkWin(){
     const winComb = [
         [0, 1, 2], // Top row
@@ -86,14 +82,12 @@ function checkWin(){
             const textC = cells[c].textContent;
             if(textA && textA == textB && textA == textC){
                 if(textA == "X"){
-                    currentPlayer = "X"
                     scoreX += 1;
                     showStatus.innerHTML = `<span id='currentPlayerHighlighter' style="color: red;" >${currentPlayer}</span> has Won!`;
                     xScore.textContent = `X : ${scoreX}`;
                     hasAnyoneWon = true;
                     
                 }else{
-                    currentPlayer = "O"
                     scoreO += 1;
                     showStatus.innerHTML = `<span id='currentPlayerHighlighter' style="color: blue;" >${currentPlayer}</span> has Won!`;
                     oScore.textContent = `O : ${scoreO}`;
