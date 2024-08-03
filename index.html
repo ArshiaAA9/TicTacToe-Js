@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">    
+        <label id="showStatus">
+            Turn for <span style="color: red;" id="currentPlayerHighlighter">X</span> to move!
+        </label>
+        <label id="scoreBoard"><span id="xScore">X : 0 </span><span id="oScore">O : 0</span></label>
+        <div class="board" id="board">
+            <div class="cell" id="0"></div>
+            <div class="cell" id="1"></div>
+            <div class="cell" id="2"></div>
+            <div class="cell" id="3"></div>
+            <div class="cell" id="4"></div>
+            <div class="cell" id="5"></div>
+            <div class="cell" id="6"></div>
+            <div class="cell" id="7"></div> 
+            <div class="cell" id="8"></div>
+        </div>
+        <button id="resetBtn" onclick="resetBtn()">Reset</button>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
