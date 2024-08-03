@@ -1,7 +1,5 @@
 const cells = document.getElementsByClassName('cell');
-const cellElements = document.querySelectorAll('.cell')
 const showStatus = document.getElementById('showStatus') 
-const currentPlayerHighlighter = document.getElementById('currentPlayerHighlighter'); 
 const xScore = document.getElementById('xScore')
 const oScore = document.getElementById('oScore')
 
